@@ -25,7 +25,9 @@ initQueues(doctors);
 app.use("/api", apiRoutes);
 
 // Health check
-app.get("/health", (req, res) => res.json({ status: "ok", timestamp: new Date().toISOString() }));
+app.get("/health", (req, res) =>
+  res.json({ status: "ok", timestamp: new Date().toISOString() }),
+);
 
 // Socket.io connection
 io.on("connection", (socket) => {
@@ -38,5 +40,5 @@ startFakeRealtime(io);
 
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
-  console.log(`🏥 SmartQueue Backend running on port ${PORT}`);
+  console.log(`🏥 SmartNavbat Backend running on port ${PORT}`);
 });
