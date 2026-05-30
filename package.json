@@ -1,7 +1,7 @@
 {
   "name": "smart-queue",
   "version": "1.0.0",
-  "description": "SmartQueue — Davlat Klinikasi Online Navbat Tizimi",
+  "description": "SmartNavbat — Davlat Klinikasi Online Navbat Tizimi",
   "scripts": {
     "install:all": "cd backend && npm install && cd ../frontend && npm install",
     "dev:backend": "cd backend && npm run dev",

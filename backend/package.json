@@ -1,7 +1,7 @@
 {
   "name": "smart-queue-backend",
   "version": "1.0.0",
-  "description": "SmartQueue — Davlat Klinikasi Navbat Tizimi Backend",
+  "description": "SmartNavbat — Davlat Klinikasi Navbat Tizimi Backend",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
