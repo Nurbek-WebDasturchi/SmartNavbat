@@ -1,6 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Activity, MapPin, Stethoscope } from "lucide-react";
+import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Activity, MapPin, Stethoscope } from 'lucide-react';
 
 export default function Navbar() {
   const { pathname } = useLocation();
@@ -10,7 +10,8 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="sticky top-0 z-50 glass border-b border-white/60 shadow-sm">
+      className="sticky top-0 z-50 glass border-b border-white/60 shadow-sm"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -20,7 +21,7 @@ export default function Navbar() {
             </div>
             <div>
               <span className="font-display font-700 text-lg text-slate-900 tracking-tight">
-                Smart<span className="text-brand-500">Navbat</span>
+                Smart<span className="text-brand-500">Queue</span>
               </span>
               <div className="text-[10px] text-slate-400 font-body leading-none -mt-0.5">
                 Online navbat tizimi
@@ -30,10 +31,10 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
-            <NavLink to="/" active={pathname === "/"}>
+            <NavLink to="/" active={pathname === '/'}>
               <MapPin className="w-4 h-4" /> Bosh sahifa
             </NavLink>
-            <NavLink to="/clinics" active={pathname.startsWith("/clinics")}>
+            <NavLink to="/clinics" active={pathname.startsWith('/clinics')}>
               <Stethoscope className="w-4 h-4" /> Klinikalar
             </NavLink>
           </nav>
@@ -49,23 +50,16 @@ export default function Navbar() {
   );
 }
 
-function NavLink({
-  to,
-  active,
-  children,
-}: {
-  to: string;
-  active: boolean;
-  children: React.ReactNode;
-}) {
+function NavLink({ to, active, children }: { to: string; active: boolean; children: React.ReactNode }) {
   return (
     <Link
       to={to}
       className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
         active
-          ? "bg-brand-50 text-brand-600"
-          : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-      }`}>
+          ? 'bg-brand-50 text-brand-600'
+          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+      }`}
+    >
       {children}
     </Link>
   );

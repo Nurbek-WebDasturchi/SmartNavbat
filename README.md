@@ -26,16 +26,16 @@
 
 ## ✨ Asosiy xususiyatlar
 
-| Xususiyat                 | Tavsif                                           |
-| ------------------------- | ------------------------------------------------ |
-| 🗺️ **Interaktiv xarita**  | Leaflet.js asosida Toshkent klinikalari xaritasi |
-| ⚡ **Real-time navbat**   | Socket.io orqali jonli navbat yangilanishi       |
-| 🚫 **Registratsiyasiz**   | Faqat ism kiritib navbat olish imkoniyati        |
-| 🔍 **Qidiruv & Filtr**    | Klinika va mutaxassislik bo'yicha filtrlash      |
-| 📱 **Mobile-first**       | Barcha qurilmalarga moslashgan responsive dizayn |
-| 💎 **Premium UI**         | Glassmorphism, Framer Motion animatsiyalar       |
-| 🦴 **Skeleton Loading**   | Smooth loading holatlari                         |
-| 🔔 **Toast xabarnomalar** | Amal natijalari uchun zamonaviy xabarnomalar     |
+| Xususiyat | Tavsif |
+|-----------|--------|
+| 🗺️ **Interaktiv xarita** | Leaflet.js asosida Toshkent klinikalari xaritasi |
+| ⚡ **Real-time navbat** | Socket.io orqali jonli navbat yangilanishi |
+| 🚫 **Registratsiyasiz** | Faqat ism kiritib navbat olish imkoniyati |
+| 🔍 **Qidiruv & Filtr** | Klinika va mutaxassislik bo'yicha filtrlash |
+| 📱 **Mobile-first** | Barcha qurilmalarga moslashgan responsive dizayn |
+| 💎 **Premium UI** | Glassmorphism, Framer Motion animatsiyalar |
+| 🦴 **Skeleton Loading** | Smooth loading holatlari |
+| 🔔 **Toast xabarnomalar** | Amal natijalari uchun zamonaviy xabarnomalar |
 
 ---
 
@@ -56,7 +56,6 @@
 ## 🛠️ Tech Stack
 
 ### Frontend
-
 - **React 18** + **TypeScript** — UI framework
 - **Vite** — Ultra-fast build tool
 - **TailwindCSS** — Utility-first CSS
@@ -69,7 +68,6 @@
 - **Clash Display + Satoshi** — Premium typography
 
 ### Backend
-
 - **Node.js** + **Express** — REST API server
 - **Socket.io** — WebSocket server for real-time
 - **In-memory store** — Lightweight data storage (no DB setup needed)
@@ -117,7 +115,6 @@ smart-queue/
 ## 🚀 Installation
 
 ### Talablar
-
 - Node.js 18+
 - npm yoki yarn
 
@@ -192,32 +189,32 @@ Frontend `http://localhost:5173` da ochiladi.
 
 ### Clinics
 
-| Method | Endpoint                                | Tavsif                       |
-| ------ | --------------------------------------- | ---------------------------- |
-| `GET`  | `/api/clinics`                          | Barcha klinikalar ro'yxati   |
-| `GET`  | `/api/clinics?search=yunusobod`         | Qidiruv bo'yicha filtr       |
-| `GET`  | `/api/clinics?specialization=Kardiolog` | Mutaxassislik bo'yicha filtr |
-| `GET`  | `/api/clinics/:id`                      | Klinika + shifokorlar        |
+| Method | Endpoint | Tavsif |
+|--------|----------|--------|
+| `GET` | `/api/clinics` | Barcha klinikalar ro'yxati |
+| `GET` | `/api/clinics?search=yunusobod` | Qidiruv bo'yicha filtr |
+| `GET` | `/api/clinics?specialization=Kardiolog` | Mutaxassislik bo'yicha filtr |
+| `GET` | `/api/clinics/:id` | Klinika + shifokorlar |
 
 ### Doctors
 
-| Method | Endpoint                  | Tavsif                       |
-| ------ | ------------------------- | ---------------------------- |
-| `GET`  | `/api/doctors`            | Barcha shifokorlar           |
-| `GET`  | `/api/doctors?clinicId=1` | Klinika bo'yicha shifokorlar |
+| Method | Endpoint | Tavsif |
+|--------|----------|--------|
+| `GET` | `/api/doctors` | Barcha shifokorlar |
+| `GET` | `/api/doctors?clinicId=1` | Klinika bo'yicha shifokorlar |
 
 ### Queue
 
-| Method | Endpoint                        | Tavsif        |
-| ------ | ------------------------------- | ------------- |
-| `POST` | `/api/queue`                    | Navbat olish  |
-| `GET`  | `/api/queue/status?doctorId=d1` | Navbat holati |
+| Method | Endpoint | Tavsif |
+|--------|----------|--------|
+| `POST` | `/api/queue` | Navbat olish |
+| `GET` | `/api/queue/status?doctorId=d1` | Navbat holati |
 
 ### Stats
 
-| Method | Endpoint     | Tavsif            |
-| ------ | ------------ | ----------------- |
-| `GET`  | `/api/stats` | Umumiy statistika |
+| Method | Endpoint | Tavsif |
+|--------|----------|--------|
+| `GET` | `/api/stats` | Umumiy statistika |
 
 #### POST `/api/queue` — Request body:
 
@@ -240,10 +237,7 @@ Frontend `http://localhost:5173` da ochiladi.
     "position": 5,
     "estimatedWait": 60,
     "doctor": { "name": "Akmal Karimov", "specialization": "Jarroh" },
-    "clinic": {
-      "name": "1-sonli Shahar Ko'p Tarmoqli Klinikasi",
-      "address": "..."
-    }
+    "clinic": { "name": "1-sonli Shahar Ko'p Tarmoqli Klinikasi", "address": "..." }
   }
 }
 ```
@@ -252,7 +246,7 @@ Frontend `http://localhost:5173` da ochiladi.
 
 ```javascript
 // Navbat yangilanishlarini tinglash
-socket.on("queue_update", (lengths) => {
+socket.on('queue_update', (lengths) => {
   // { 'd1': 9, 'd2': 6, ... }
 });
 ```
@@ -301,5 +295,5 @@ MIT License. Bepul foydalaning va o'zgartiring.
 ---
 
 <div align="center">
-  <strong>SmartNavbat</strong> — Sog'liqni saqlashni digitallashtirish yo'lida ✨
+  <strong>SmartQueue</strong> — Sog'liqni saqlashni digitallashtirish yo'lida ✨
 </div>

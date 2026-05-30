@@ -1,27 +1,35 @@
 import { useEffect } from 'react';
-import { io } from 'socket.io-client';
 import { useAppStore } from '../store/useAppStore';
+import { api } from '../utils/api';
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3001';
-
-let socket: ReturnType<typeof io> | null = null;
-
+// Fake real-time without Socket.io — runs entirely in browser
 export function useSocket() {
   const { setQueueLengths } = useAppStore();
 
   useEffect(() => {
-    if (!socket) {
-      socket = io(SOCKET_URL, { transports: ['websocket', 'polling'] });
-    }
+    // Initialize with current lengths
+    setQueueLengths({ ...api._queueLengths });
 
-    socket.on('queue_update', (lengths: Record<string, number>) => {
-      setQueueLengths(lengths);
-    });
+    const interval = setInterval(() => {
+      const lengths = api._queueLengths;
+      const ids = Object.keys(lengths);
+      if (!ids.length) return;
 
-    return () => {
-      socket?.off('queue_update');
-    };
+      // Randomly change 1-2 queues
+      const count = Math.random() < 0.4 ? 2 : 1;
+      for (let i = 0; i < count; i++) {
+        const id = ids[Math.floor(Math.random() * ids.length)];
+        const roll = Math.random();
+        if (roll < 0.55 && lengths[id] > 0) {
+          lengths[id] = Math.max(0, lengths[id] - 1);
+        } else if (roll < 0.8) {
+          lengths[id] = lengths[id] + 1;
+        }
+      }
+
+      setQueueLengths({ ...lengths });
+    }, 8000);
+
+    return () => clearInterval(interval);
   }, [setQueueLengths]);
-
-  return socket;
 }
